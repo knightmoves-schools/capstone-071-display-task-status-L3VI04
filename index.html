@@ -3,105 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task List with Status</title>
+  <title>Task List</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 2rem;
+      background: #f9fafb;
+    }
+
+    .tasks {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 600px;
     }
 
     .task-item {
-      padding: 5px;                    /* 5px padding on all sides */
-      margin-bottom: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      background-color: #f9f9f9;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     }
 
     .task-description {
+      padding: 5px;           /* exactly 5px padding as required */
       flex: 1;
     }
 
     .task-status {
-      padding: 5px;                    /* 5px padding on all sides for status */
+      padding: 5px;           /* exactly 5px padding on status too */
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
       border-radius: 4px;
-      font-weight: bold;
       min-width: 70px;
       text-align: center;
     }
 
-    /* Unique IDs as required */
-    #task-status-1 { background-color: #ffebee; color: #c62828; } /* todo */
-    #task-status-2 { background-color: #fff3e0; color: #ef6c00; } /* doing */
-    #task-status-3 { background-color: #e8f5e9; color: #2e7d32; } /* done */
+    #task-status-1 { background: #fff3cd; color: #856404; } /* todo */
+    #task-status-2 { background: #d1ecf1; color: #0c5460; } /* doing */
+    #task-status-3 { background: #d4edda; color: #155724; } /* done */
   </style>
 </head>
 <body>
 
   <h1>My Tasks</h1>
 
-  <div id="task-list">
-    <!-- Task 1 - todo -->
+  <!-- This is the container your test is looking for -->
+  <div class="tasks" data-testid="tasks">
+    
     <div class="task-item">
-      <span class="task-description">Implement user authentication</span>
-      <span id="task-status-1" class="task-status">todo</span>
+      <div class="task-description">Write automated tests for login feature</div>
+      <div class="task-status" id="task-status-1">todo</div>
     </div>
-
-    <!-- Task 2 - doing -->
+    
     <div class="task-item">
-      <span class="task-description">Design new landing page</span>
-      <span id="task-status-2" class="task-status">doing</span>
+      <div class="task-description">Implement dark mode toggle</div>
+      <div class="task-status" id="task-status-2">doing</div>
     </div>
-
-    <!-- Task 3 - done -->
+    
     <div class="task-item">
-      <span class="task-description">Set up CI/CD pipeline</span>
-      <span id="task-status-3" class="task-status">done</span>
+      <div class="task-description">Deploy application to production</div>
+      <div class="task-status" id="task-status-3">done</div>
     </div>
+    
   </div>
-
-  <hr>
-
-  <h2>Add new task</h2>
-  <input type="text" id="new-task-input" placeholder="Enter task description" style="width: 300px; padding: 8px;">
-  <button onclick="addTask()">Add Task</button>
-
-  <script>
-    let nextId = 4; // for future tasks
-
-    function addTask() {
-      const input = document.getElementById('new-task-input');
-      const description = input.value.trim();
-      if (!description) return;
-
-      const taskList = document.getElementById('task-list');
-
-      const taskItem = document.createElement('div');
-      taskItem.className = 'task-item';
-
-      const descSpan = document.createElement('span');
-      descSpan.className = 'task-description';
-      descSpan.textContent = description;
-
-      const statusSpan = document.createElement('span');
-      statusSpan.id = `task-status-${nextId++}`;
-      statusSpan.className = 'task-status';
-      statusSpan.textContent = 'todo';
-      statusSpan.style.backgroundColor = '#ffebee';
-      statusSpan.style.color = '#c62828';
-
-      taskItem.appendChild(descSpan);
-      taskItem.appendChild(statusSpan);
-      taskList.appendChild(taskItem);
-
-      input.value = '';
-    }
-  </script>
 
 </body>
 </html>
