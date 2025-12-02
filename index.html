@@ -1,76 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task List</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      margin: 2rem;
-      background: #f9fafb;
-    }
+    <title>Task App</title>
+    <style>
+        /* Make each row a flex container so description and status stay on the same line */
+        .row {
+            display: flex;
+            margin-bottom: 8px;
+        }
 
-    .tasks {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 600px;
-    }
+        /* Style for the task description */
+        .task-description {
+            padding: 5px;
+            background-color: #f0f0f0;
+            flex: 1;                /* takes up available space */
+        }
 
-    .task-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      padding: 5px;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-    }
-
-    .task-description {
-      padding: 5px;           /* exactly 5px padding as required */
-      flex: 1;
-    }
-
-    .task-status {
-      padding: 5px;           /* exactly 5px padding on status too */
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      border-radius: 4px;
-      min-width: 70px;
-      text-align: center;
-    }
-
-    #task-status-1 { background: #fff3cd; color: #856404; } /* todo */
-    #task-status-2 { background: #d1ecf1; color: #0c5460; } /* doing */
-    #task-status-3 { background: #d4edda; color: #155724; } /* done */
-  </style>
+        /* Style for the task status (shows the time in ms) */
+        .task-status {
+            padding: 5px;
+            background-color: #e0e0e0;
+            width: 120px;           /* fixed width so all statuses line up nicely */
+            text-align: right;
+            font-family: monospace;
+        }
+    </style>
 </head>
 <body>
+    <div id="tasks">
+        <div id="task-row-1" class="row">
+            <div id="task-description-1" class="task-description">
+                pack spikes for track meet
+            </div>
+            <div class="task-status">1022 ms</div>
+        </div>
 
-  <h1>My Tasks</h1>
+        <div id="task-row-2" class="row">
+            <div id="task-description-2" class="task-description">
+                write draft english paper
+            </div>
+            <div class="task-status">135 ms</div>
+        </div>
 
-  <!-- This is the container your test is looking for -->
-  <div class="tasks" data-testid="tasks">
-    
-    <div class="task-item">
-      <div class="task-description">Write automated tests for login feature</div>
-      <div class="task-status" id="task-status-1">todo</div>
+        <div id="task-row-3" class="row">
+            <div id="task-description-3" class="task-description">
+                finish math homework
+            </div>
+            <div class="task-status">126 ms</div>
+        </div>
     </div>
-    
-    <div class="task-item">
-      <div class="task-description">Implement dark mode toggle</div>
-      <div class="task-status" id="task-status-2">doing</div>
-    </div>
-    
-    <div class="task-item">
-      <div class="task-description">Deploy application to production</div>
-      <div class="task-status" id="task-status-3">done</div>
-    </div>
-    
-  </div>
-
 </body>
 </html>
