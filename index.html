@@ -3,24 +3,23 @@
 <head>
     <title>Task App</title>
     <style>
-        /* Make each row a flex container so description and status stay on the same line */
+        
         .row {
             display: flex;
             margin-bottom: 8px;
         }
 
-        /* Style for the task description */
+        
         .task-description {
             padding: 5px;
             background-color: #f0f0f0;
-            flex: 1;                /* takes up available space */
+            flex: 1;               
         }
 
-        /* Style for the task status (shows the time in ms) */
         .task-status {
             padding: 5px;
             background-color: #e0e0e0;
-            width: 120px;           /* fixed width so all statuses line up nicely */
+            width: 120px;           
             text-align: right;
             font-family: monospace;
         }
@@ -33,7 +32,6 @@
                 <div id="task-status-1" class="task-status">
                 pack spikes for track meet
             </div>
-            <div class="task-status">1022 ms</div>
         </div>
 
         <div id="task-row-2" class="row">
@@ -41,7 +39,6 @@
                 <div id="task-status-2" class="task-status">
                 write draft english paper
             </div>
-            <div class="task-status">135 ms</div>
         </div>
 
         <div id="task-row-3" class="row">
@@ -49,7 +46,6 @@
                 <div id="task-status-3" class="task-status">
                 finish math homework
             </div>
-            <div class="task-status">126 ms</div>
         </div>
     </div>
 </body>
